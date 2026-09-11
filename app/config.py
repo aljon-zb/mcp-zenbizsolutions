@@ -39,11 +39,26 @@ class TenantSettings:
 
 
 def load_global_settings() -> GlobalSettings:
+    public_base_url = os.getenv(
+        "MCP_PUBLIC_BASE_URL",
+        "https://mycompany.com",
+    ).strip()
+
+    if public_base_url and not public_base_url.startswith(
+        ("http://", "https://")
+    ):
+        public_base_url = f"https://{public_base_url}"
+
     return GlobalSettings(
         host=os.getenv("MCP_HOST", "0.0.0.0"),
-        port=int(os.getenv("MCP_PORT", "8000")),
+        port=int(
+            os.getenv(
+                "PORT",
+                os.getenv("MCP_PORT", "8000"),
+            )
+        ),
         transport=os.getenv("MCP_TRANSPORT", "streamable-http"),
-        public_base_url=os.getenv("MCP_PUBLIC_BASE_URL", "https://mycompany.com"),
+        public_base_url=public_base_url,
         public_path=os.getenv("MCP_PUBLIC_PATH", "/mcp"),
         identity_mode=os.getenv("IDENTITY_MODE", "hybrid"),
         log_level=os.getenv("LOG_LEVEL", "INFO"),

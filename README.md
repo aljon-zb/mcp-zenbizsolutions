@@ -126,3 +126,9 @@ The generated `.env` contains credentials supplied for this project and is exclu
 
 Do not commit `.env` to a Git repository.
 # mcp-zenbizsolutions
+
+
+## Railway runtime compatibility
+
+This project is pinned to MCP Python SDK 1.x with `mcp>=1.12.0,<2`.
+FastMCP 1.x requires host and port to be assigned through `mcp.settings` before calling `run()`. Railway's injected `PORT` variable is preferred automatically, with `MCP_PORT` as the local fallback. `MCP_PUBLIC_BASE_URL` is also normalized to HTTPS when entered without a scheme.

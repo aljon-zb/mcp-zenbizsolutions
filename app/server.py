@@ -84,8 +84,11 @@ async def system_bootstrap_as_tenant(tenant_id: str):
 
 
 if __name__ == "__main__":
+    # FastMCP 1.x does not accept host/port as arguments to run().
+    # Configure them through mcp.settings instead.
+    mcp.settings.host = settings.host
+    mcp.settings.port = settings.port
+
     mcp.run(
-        transport=settings.transport,
-        host=settings.host,
-        port=settings.port,
+        transport=settings.transport
     )
