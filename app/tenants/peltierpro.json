@@ -1,0 +1,37 @@
+{
+  "tenant_id": "peltierpro",
+  "name": "PeltierPro",
+  "enabled_tool_groups": [
+    "contacts",
+    "sales",
+    "inventory"
+  ],
+  "roles": {
+    "mcp_admin": [
+      "*"
+    ],
+    "read_only_user": [
+      "contacts.read",
+      "sales.read",
+      "inventory.read"
+    ],
+    "sales_user": [
+      "contacts.read",
+      "sales.read",
+      "inventory.read"
+    ],
+    "sales_manager": [
+      "contacts.read",
+      "sales.read",
+      "sales.create",
+      "inventory.read"
+    ],
+    "sales_approver": [
+      "contacts.read",
+      "sales.read",
+      "sales.create",
+      "sales.confirm",
+      "inventory.read"
+    ]
+  }
+}

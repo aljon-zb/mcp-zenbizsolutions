@@ -1,0 +1,16 @@
+{
+  "projects": [
+    {
+      "tenant_id": "peltierpro",
+      "name": "PeltierPro",
+      "env_prefix": "PELTIERPRO",
+      "enabled": true
+    },
+    {
+      "tenant_id": "zenbiz",
+      "name": "ZenBiz",
+      "env_prefix": "ZENBIZ",
+      "enabled": true
+    }
+  ]
+}
